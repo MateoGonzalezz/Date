@@ -22,10 +22,10 @@ public class Date {
 	}
 
 
-	public Date(int day,int month, int year) {
-		this.day =day;
-		this.month =month;
-		this.year=year;
+	public Date(int day,int month, int year) throws DateException{
+		this.setDay(day);
+		this.setMonth(month);
+		this.setYear(year);
 		
 	}
 	
@@ -56,12 +56,12 @@ public class Date {
 	}
 	
 	
-	public void setDay(int day) {
-		if (day>1||day<this.getDayOfMonth(this.month)) {
+	public void setDay(int day) throws DateException{
+		if (day>1 && day<this.getDayOfMonth(this.month)) {
 			this.day=day;
 		}
 		else{
-			throw
+			throw new DateException("Date error: Day " + day + " of month " + this.month + " not valid");
 		}
 	}
 	boolean isSameDay(Date otrodia) {
@@ -73,12 +73,12 @@ public class Date {
 	}
 
 	
-	public void setMonth(int month) {
+	public void setMonth(int month) throws DateException{
 		if(month>0 && month<13) {
 			this.month = month;
 		}
 		else {
-			System.out.println("dato erroneo");
+			throw new DateException("Date error: Month " + month + " not valid");
 		}
 	}
 	boolean isSameMonth(Date otromes) {
@@ -112,7 +112,7 @@ public class Date {
 	
 	public String nombreMes(int nombremes){
 		String mes= "";
-		this.month=nombremes;
+		
 		switch(nombremes){
 			case 1:
 			mes = "Enero";

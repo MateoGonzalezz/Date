@@ -1,4 +1,4 @@
-package es.unileon.prg1.Date;
+package es.unileon.prg.Date;
 
 public class DateException extends Exception {
 	
@@ -6,4 +6,4 @@ public class DateException extends Exception {
 		super(msg);
 	}
 
-}
+}	

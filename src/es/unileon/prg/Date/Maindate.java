@@ -3,11 +3,14 @@ package es.unileon.prg.Date;
 public class Maindate {
 
 	public static void main (String [] args) {
-		Date today, tomorrow;
-		
+		Date today = null, tomorrow = null;
+		try{	
 		today= new Date(24,3,2022);
 		tomorrow = new Date (12,1,2020);
-		
+		}
+		catch(DateException exception){
+			System.err.println("Los datos introducidos son incorrectos");
+		}
 
 		System.out.println("El dia es igual: " + today.isSameDay(tomorrow));
 		System.out.println("Dia today: " + today.getDay() +"   Dia tomorrow: "+ tomorrow.getDay());
